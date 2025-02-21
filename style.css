@@ -17,12 +17,25 @@ body {
   text-align: center;
 }
 
+/* Navigation styles */
 .navbar {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  align-items: center;
   padding: 1rem;
   background-color: #34495e;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }
 
 .navbar a {
@@ -135,4 +148,151 @@ body {
   .social-links {
     margin-bottom: 1rem;
   }
+}
+
+/* Add these responsive styles to your existing CSS */
+
+/* For tablets and smaller screens */
+@media screen and (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .aside-content {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .main-article {
+    width: 100%;
+  }
+
+  .campaign-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .navbar a {
+    padding: 0.5rem 1rem;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 101;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    position: fixed;
+    right: -100%; /* Changed from left to right */
+    top: 0;
+    gap: 0;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: 0.3s;
+    padding-top: 70px;
+    z-index: 100;
+  }
+
+  .nav-menu.active {
+    right: 0; /* Changed from left to right */
+  }
+
+  .navbar a {
+    margin: 16px 0;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* For mobile devices */
+@media screen and (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .contact-info,
+  .social-links {
+    width: 100%;
+  }
+
+  .social-links a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Ensure proper spacing on very small devices */
+@media screen and (max-width: 320px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .article-content {
+    padding: 0.5rem;
+  }
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
 }
